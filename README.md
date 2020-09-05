@@ -77,3 +77,20 @@ Go back to the swarm manager and list the nodes.
 
 `docker node ls`
 Verify that you can see all three servers listed (including the manager). All three should have a status of READY. Once all three servers are ready, you have built your own Docker swarm cluster!
+
+
+
+# Managing Images 
+
+Download an image from a remote registry 
+`docker image pull nginx:1.14.0`
+
+To list your images 
+`docker image ls`
+
+# To get more details about each image 
+`docker inspect nginx`
+
+# When you delete an image, that is associated with a container you are left with a dangling 
+
+`docker image prune`
