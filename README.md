@@ -147,3 +147,41 @@ Two different ways to scale a service:
 `docker service update --replicas 3 nginx`
 OR
 `docker service scale nginx=4`
+
+# Docker Compose
+Install Docker Compose.
+
+`sudo curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose`
+
+`sudo chmod +x /usr/local/bin/docker-compose`
+
+`docker-compose version`
+
+Set up a Docker Compose project.
+
+```mkdir nginx-compose
+cd nginx-compose
+vi docker-compose.yml
+```
+
+Create your docker-compose.yml.
+
+```
+version: '3'
+services:
+  web:
+    image: nginx
+    ports:
+    - "8080:80"
+  redis:
+    image: redis:alpine
+  ```
+  
+Start your Compose app.
+
+`docker-compose up -d`
+List the Docker Compose containers, then stop the app.
+
+`docker-compose ps`
+
+`docker-compose down`
