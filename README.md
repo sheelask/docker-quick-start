@@ -98,3 +98,29 @@ To list your images
 # Docker Registries 
 
 A docker registry is responsible for storing and distributing docker images. The default public registry for images is `Docker Hub`. But you can also create your own public/private registries and pull images from there. 
+
+
+# Docker Services
+Create a simple service running the nginx image.
+
+`docker service create nginx`
+
+Create an nginx service with a specified name, multiple replicas, and a published port.
+
+`docker service create --name nginx --replicas 3 -p 8080:80 nginx`
+
+Use a template to pass the node hostname to each container as an environment variable.
+
+`docker service create --name node-hostname --replicas 3 --env NODE_HOSTNAME="{{.Node.Hostname}}" nginx`
+
+Get the container running on the current machine, and print its environment variables to verify that the NODE_HOSTNAME variable is set properly.
+
+```docker ps
+docker exec <CONTAINER_ID> printenv
+``` 
+List the services in the cluster.
+
+`docker service ls`
+List the tasks for a service.
+
+`docker service ps nginx`
