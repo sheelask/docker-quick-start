@@ -94,3 +94,7 @@ To list your images
 # When you delete an image, that is associated with a container you are left with a dangling 
 
 `docker image prune`
+
+# Docker Registries 
+
+A docker registry is responsible for storing and distributing docker images. The default public registry for images is `Docker Hub`. But you can also create your own public/private registries and pull images from there. 
