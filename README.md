@@ -121,6 +121,29 @@ docker exec <CONTAINER_ID> printenv
 List the services in the cluster.
 
 `docker service ls`
+
 List the tasks for a service.
 
 `docker service ps nginx`
+
+Inspect a service.
+
+`docker service inspect nginx`
+`docker service inspect --pretty nginx`
+
+Change a service.
+
+`docker service update --replicas 2 nginx`
+
+Delete a service.
+
+`docker service rm nginx`
+
+Create a global service.
+
+`docker service create --name nginx --mode global nginx`
+Two different ways to scale a service:
+
+`docker service update --replicas 3 nginx`
+OR
+`docker service scale nginx=4`
